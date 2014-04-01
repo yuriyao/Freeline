@@ -15,6 +15,7 @@ import org.footoo.biz.user.UserService;
 import org.footoo.biz.user.UserServiceImpl;
 import org.footoo.common.log.Logger;
 import org.footoo.common.log.LoggerFactory;
+import org.footoo.web.form.FormException;
 
 /**
  * 登陆的处理函数
@@ -37,6 +38,7 @@ public class LoginServlet extends HttpServlet {
      * 
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                                                                                 throws ServletException,
@@ -45,6 +47,12 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String pwd = request.getParameter("password");
         response.setCharacterEncoding("utf8");
+        LoginForm loginForm = new LoginForm();
+        try {
+            loginForm.assignAttrs(request.getParameterMap());
+        } catch (FormException e) {
+            logger.error("", e);
+        }
 
         if (userService.login(userName, pwd)) {
             logger.debug(userName + "登陆成功");

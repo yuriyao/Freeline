@@ -50,7 +50,6 @@ public class Form {
      * @param paramaters
      * @throws FormException
      */
-    @SuppressWarnings("null")
     public void assignAttrs(Map<String, String> paramaters) throws FormException {
         Class<?>[] clzs = findInheritChain();
 
@@ -75,6 +74,7 @@ public class Form {
                     Object param = propertyConvetor.convetor(paramaters.get(key));
                     //logger.debug(param);
                     //调用set方法
+                    method.setAccessible(true);
                     method.invoke(this, param);
                 } catch (PropertyConvetorException e) {
                     throw new FormException(e.getMessage());

@@ -4,10 +4,10 @@ import org.footoo.web.form.FormAttribute;
 import org.footoo.web.form.FormFieldEnum;
 import org.footoo.web.user.LoginForm;
 
-public class LoginForm2 extends LoginForm {
+class LoginForm2 extends LoginForm {
     @FormAttribute(required = true, type = { FormFieldEnum.HEX_NUMBER_FIELD })
     private int    age;
-    @FormAttribute(required = true, type = { FormFieldEnum.HEX_NUMBER_FIELD })
+    @FormAttribute(required = false, type = { FormFieldEnum.HEX_NUMBER_FIELD })
     private String school;
 
     /**

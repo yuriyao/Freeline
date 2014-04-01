@@ -11,12 +11,19 @@ package org.footoo.biz.user;
  */
 public class UserServiceImpl implements UserService {
 
-    /** 
-     * @see org.footoo.biz.user.UserService#login(java.lang.String, java.lang.String)
-     */
     @Override
-    public boolean login(String userName, String pwd) {
-        return true;
+    public boolean login(UserLoginInfo userLoginInfo) {
+        return false;
+    }
+
+    @Override
+    public boolean registerSimple(UserLoginInfo userLoginInfo) {
+        return false;
+    }
+
+    @Override
+    public boolean hasRegister(String userName) {
+        return false;
     }
 
 }

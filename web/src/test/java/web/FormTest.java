@@ -20,7 +20,7 @@ public class FormTest {
         map.put("userName", "123");
         map.put("password", "23434");
         map.put("age", "32");
-        map.put("school", "123");
+        map.put("school", "1ddhh23");
         LoginForm2 loginForm = new LoginForm2();
 
         loginForm.assignAttrs(map);

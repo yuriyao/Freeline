@@ -11,12 +11,29 @@ package org.footoo.biz.user;
  * @version $Id: UserService.java, v 0.1 2014年3月24日 上午12:03:05 jeff Exp $
  */
 public interface UserService {
+
     /**
      * 用户登陆
      * 
-     * @param userName
-     * @param pwd
+     * @param userLoginInfo
      * @return
      */
-    public boolean login(String userName, String pwd);
+    public boolean login(UserLoginInfo userLoginInfo);
+
+    /**
+     * 简洁用户注册模式
+     * 
+     * @param userLoginInfo 只注册用户的登陆基本信息
+     * @return
+     */
+    public boolean registerSimple(UserLoginInfo userLoginInfo);
+
+    /**
+     * 用户名是否已经被注册
+     * 
+     * @param userName
+     * @return
+     */
+    public boolean hasRegister(String userName);
+
 }
